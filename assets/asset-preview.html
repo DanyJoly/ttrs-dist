@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agentic Tetris Asset Preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --background: #050714;
+        --panel: #080b1f;
+        --grid: #22326f;
+        --accent: #20e8ff;
+        --warm: #ff9a25;
+        --text: #f5f7ff;
+        --muted: #9bb6ff;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--text);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      }
+
+      main {
+        width: min(960px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 32px 0 48px;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      h2 {
+        margin-top: 32px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      p {
+        margin-top: 8px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .panel {
+        margin-top: 16px;
+        border: 1px solid var(--grid);
+        background: var(--panel);
+        box-shadow: 0 0 24px rgba(32, 232, 255, 0.12);
+        padding: 16px;
+      }
+
+      .icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        align-items: end;
+      }
+
+      .icon-preview {
+        display: grid;
+        gap: 8px;
+      }
+
+      .icon-preview img {
+        display: block;
+        background: var(--background);
+      }
+
+      .icon-large {
+        width: 128px;
+        height: 128px;
+      }
+
+      .icon-small {
+        width: 90px;
+        height: 90px;
+      }
+
+      .tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+        gap: 12px;
+      }
+
+      .tile {
+        display: grid;
+        gap: 8px;
+        place-items: center;
+        padding: 12px;
+        border: 1px solid var(--grid);
+        background-image:
+          linear-gradient(var(--grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+
+      .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+
+      .asset-card {
+        display: grid;
+        gap: 8px;
+        align-content: start;
+      }
+
+      .asset-card img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid rgba(155, 182, 255, 0.28);
+        background: #02040e;
+        image-rendering: pixelated;
+      }
+
+      .backgrounds {
+        display: grid;
+        grid-template-columns: minmax(180px, 260px) 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .portrait-preview {
+        width: min(100%, 260px);
+      }
+
+      .desktop-preview {
+        width: 100%;
+      }
+
+      .sprite-strip {
+        display: grid;
+        gap: 8px;
+      }
+
+      .sprite-strip img {
+        width: min(100%, 448px);
+        height: auto;
+        image-rendering: pixelated;
+      }
+
+      .tile img {
+        width: 64px;
+        height: 64px;
+        image-rendering: pixelated;
+      }
+
+      .label {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .sample-row {
+        display: block;
+        width: min(100%, 640px);
+        height: auto;
+      }
+
+      @media (max-width: 680px) {
+        .backgrounds {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Agentic Tetris Asset Preview</h1>
+      <p>Asset proof sheet for the Phase 9 neon glass pixel-art direction. Runtime backgrounds are generated PNGs under <code>theme/neon-glass/backgrounds</code>; cells, UI, icons, and effects remain local SVG assets.</p>
+
+      <h2>Icons</h2>
+      <section class="panel icons" aria-label="Icon assets">
+        <div class="icon-preview">
+          <img class="icon-large" src="./icons/app-icon.svg" alt="PWA app icon">
+          <span class="label">app-icon.svg</span>
+        </div>
+        <div class="icon-preview">
+          <img class="icon-large" src="./icons/app-icon-maskable.svg" alt="Maskable app icon">
+          <span class="label">app-icon-maskable.svg</span>
+        </div>
+        <div class="icon-preview">
+          <img class="icon-small" src="./icons/apple-touch-icon.svg" alt="Apple touch icon">
+          <span class="label">apple-touch-icon.svg</span>
+        </div>
+      </section>
+
+      <h2>Neon Glass Backgrounds</h2>
+      <section class="panel backgrounds" aria-label="Neon glass background assets">
+        <div class="asset-card">
+          <img class="portrait-preview" src="./theme/neon-glass/backgrounds/portrait-stage.png" alt="Portrait Russian-inspired pixel-art stage">
+          <span class="label">portrait-stage.png</span>
+        </div>
+        <div class="asset-card">
+          <img class="desktop-preview" src="./theme/neon-glass/backgrounds/desktop-stage.png" alt="Desktop Russian-inspired pixel-art stage">
+          <span class="label">desktop-stage.png</span>
+        </div>
+      </section>
+
+      <h2>Neon Glass Cell Sprite Sheet</h2>
+      <section class="panel sprite-strip" aria-label="Neon glass tetromino cell sprite sheet">
+        <img src="./theme/neon-glass/blocks/neon-cells.svg" alt="Seven neon glass cell sprites in Tetris colors">
+        <span class="label">neon-cells.svg, 7 frames, 64 x 64 each</span>
+      </section>
+
+      <h2>UI Surfaces</h2>
+      <section class="panel asset-grid" aria-label="Theme UI surface assets">
+        <div class="asset-card"><img src="./theme/neon-glass/ui/hud-panel.svg" alt="HUD panel"><span class="label">hud-panel.svg</span></div>
+        <div class="asset-card"><img src="./theme/neon-glass/ui/preview-slot.svg" alt="Next preview slot"><span class="label">preview-slot.svg</span></div>
+        <div class="asset-card"><img src="./theme/neon-glass/ui/table-row.svg" alt="High-score table row"><span class="label">table-row.svg</span></div>
+      </section>
+
+      <h2>Effect References</h2>
+      <section class="panel asset-grid" aria-label="Theme effect assets">
+        <div class="asset-card"><img src="./theme/neon-glass/effects/line-clear-strip.svg" alt="Line-clear neon strip"><span class="label">line-clear-strip.svg</span></div>
+        <div class="asset-card"><img src="./theme/neon-glass/effects/tetris-burst.svg" alt="Tetris burst effect"><span class="label">tetris-burst.svg</span></div>
+      </section>
+
+      <h2>Fallback Tetromino Block Samples</h2>
+      <section class="panel tiles" aria-label="Tetromino block assets">
+        <div class="tile"><img src="./blocks/i-block.svg" alt="I block"><span class="label">I #00f0f0</span></div>
+        <div class="tile"><img src="./blocks/o-block.svg" alt="O block"><span class="label">O #f0f000</span></div>
+        <div class="tile"><img src="./blocks/t-block.svg" alt="T block"><span class="label">T #a000f0</span></div>
+        <div class="tile"><img src="./blocks/s-block.svg" alt="S block"><span class="label">S #00f000</span></div>
+        <div class="tile"><img src="./blocks/z-block.svg" alt="Z block"><span class="label">Z #f00000</span></div>
+        <div class="tile"><img src="./blocks/j-block.svg" alt="J block"><span class="label">J #0000f0</span></div>
+        <div class="tile"><img src="./blocks/l-block.svg" alt="L block"><span class="label">L #f0a000</span></div>
+      </section>
+    </main>
+  </body>
+</html>
